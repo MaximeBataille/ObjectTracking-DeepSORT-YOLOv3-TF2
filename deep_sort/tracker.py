@@ -91,11 +91,7 @@ class Tracker:
             np.asarray(features), np.asarray(targets), active_targets)
         
         for track, detection in zip(self.tracks, detections):
-            print('test passe bien ici')
-            track.embedding = detection.feature
-            print(dir(track))
-            print(track.embedding)
-            
+            track.embedding = detection.feature            
             
     def _match(self, detections):
 
