@@ -89,7 +89,14 @@ class Tracker:
             track.features = []
         self.metric.partial_fit(
             np.asarray(features), np.asarray(targets), active_targets)
-
+        
+        for track, detection in zip(self.tracks, detections):
+            print('test passe bien ici')
+            track.embedding = detection.feature
+            print(dir(track))
+            print(track.embedding)
+            
+            
     def _match(self, detections):
 
         def gated_metric(tracks, dets, track_indices, detection_indices):
